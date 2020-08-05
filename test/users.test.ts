@@ -3,8 +3,8 @@ import { addUser, getUser, removeUser, close } from '../src';
 describe('Users', () => {
   // Create
   it('Add User', async done => {
-    const expected = { name: 'Salmon', age: 28 };
-    const actual = await addUser('Salmon', 28);
+    const expected = { name: 'TestUser', age: 28 };
+    const actual = await addUser('TestUser', 28);
 
     expect(actual).toEqual(expected);
 
@@ -13,8 +13,8 @@ describe('Users', () => {
 
   // Read
   it('Get User', async done => {
-    const expected = await addUser('Salmon', 28);
-    const actual = await getUser('Salmon');
+    const expected = await addUser('TestUser', 28);
+    const actual = await getUser('TestUser');
 
     expect(actual).toEqual(expected);
 
@@ -23,8 +23,8 @@ describe('Users', () => {
 
   // Delete
   it('Remove User', async done => {
-    await addUser('Salmon', 28);
-    const actual = await removeUser('Salmon');
+    await addUser('TestUser', 28);
+    const actual = await removeUser('TestUser');
 
     expect(actual).toEqual(1);
 
@@ -36,6 +36,6 @@ describe('Users', () => {
   });
 
   afterEach(async () => {
-    await removeUser('Salmon');
+    await removeUser('TestUser');
   });
 });
