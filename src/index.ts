@@ -3,7 +3,7 @@ import * as neo4j from 'neo4j-driver';
 const host = 'bolt://localhost:7687';
 const driver = neo4j.driver(host);
 
-export const addUser = async (name: string, age?: number) => {
+export const addUser = async (name: string, age?: number): Promise<unknown> => {
   let user;
   const session = driver.session();
 
@@ -25,7 +25,7 @@ export const addUser = async (name: string, age?: number) => {
   return user;
 };
 
-export const getUser = async (name: string) => {
+export const getUser = async (name: string): Promise<unknown> => {
   let user;
   const session = driver.session();
 
@@ -47,7 +47,7 @@ export const getUser = async (name: string) => {
   return user;
 };
 
-export const removeUser = async (name: string) => {
+export const removeUser = async (name: string): Promise<unknown> => {
   let summary;
   const session = driver.session();
 
@@ -68,6 +68,6 @@ export const removeUser = async (name: string) => {
   return summary;
 };
 
-export const close = async () => {
+export const close = async (): Promise<void> => {
   await driver.close();
 };
